@@ -2,7 +2,7 @@ article = document.getElementsByClassName("article-body")[0], images = article.g
 for (let [e, j] of Object.entries(images)) {
     if (0 == e) continue;
     let t = document.createElement("div");
-    t.className = "slide", t.innerHTML = `<div class="picture"><div class="s-nav"><span class="prev" onclick="siema_lightbox.prev()"></span><span class="next" onclick="siema_lightbox.next()"></span></div><img loading="lazy" src="${j.getAttribute("src")}"></div><span class="count">${e} / ${images.length-1}</span><div class="close" onclick="lightbox('closer')" />`, carousel.append(t), j.setAttribute("onclick", `lightbox('opener', ${e-1})`)
+    t.className = "slide", t.innerHTML = `<div class="picture"><div class="s-nav"><span class="prev" onclick="siema_lightbox.prev()"></span><span class="next" onclick="siema_lightbox.next()"></span></div><img loading="lazy" src="${j.getAttribute("src")}" width="${j.getAttribute("width") || j.getAttribute("data-original-width")}" height="${j.getAttribute("height") || j.getAttribute("data-original-height")}"></div><span class="count">${e} / ${images.length-1}</span><div class="close" onclick="lightbox('closer')" />`, carousel.append(t), j.setAttribute("onclick", `lightbox('opener', ${e-1})`)
 }
 const siema_lightbox = new Siema({
     duration: 0,
